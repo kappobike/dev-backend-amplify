@@ -1,0 +1,14 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "kpobkd-dev-20190701123407-authRole",
+            "UnauthRoleArn": "arn:aws:iam::525445453656:role/kpobkd-dev-20190701123407-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::525445453656:role/kpobkd-dev-20190701123407-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "kpobkd-dev-20190701123407-deployment",
+            "UnauthRoleName": "kpobkd-dev-20190701123407-unauthRole",
+            "StackName": "kpobkd-dev-20190701123407",
+            "StackId": "arn:aws:cloudformation:us-east-1:525445453656:stack/kpobkd-dev-20190701123407/0ee0db80-9c1e-11e9-b909-0a3569efe79e"
+        }
+    }
+}

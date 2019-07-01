@@ -1,0 +1,60 @@
+type UserProfile @model{
+  id: ID!
+  name: String!
+  email: String!
+  company_email: String
+  os: OS
+  user_location: Zone
+  trips: [Trip] @connection(name: "UserTrips")
+  rankings: [Ranking] @connection(name: "UserRankings")
+}
+
+type Country @model  {
+  id: ID!
+  country_name: String!
+  regions: [Region] @connection(name: "CountryRegions")
+}
+
+type Region @model  {
+  id: ID!
+  region_name: String!
+  country: Country @connection(name: "CountryRegions", sortField: "region_name")
+  zones: [Zone] @connection(name: "RegionZones")
+}
+
+type Zone @model {
+  id: ID!
+  zone_name: String!
+  region: Region @connection(name: "RegionZones", sortField: "zone_name")
+}
+
+type Trip @model {
+  id: ID!
+  ts_start: Int!
+  ts_finish: Int!
+  time_seconds: Int!
+  date_trip: String!
+  trip_location: Zone!
+  user: UserProfile! @connection(name: "UserTrips", sortField: "createdAt")
+  createdAt: String!
+}
+
+enum OS {
+  ANDROID
+  IOS
+}
+
+enum RankingType {
+  MONTH
+  YEAR
+}
+
+type Ranking @model {
+  id: ID!
+  zone: Zone!
+  ranking_type: RankingType!
+  user: UserProfile @connection(name: "UserRankings", sortField: "valrank")
+  valrank: Float
+}
+
+
