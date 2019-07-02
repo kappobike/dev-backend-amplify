@@ -26,6 +26,7 @@ type Zone @model {
   id: ID!
   zone_name: String!
   region: Region @connection(name: "RegionZones", sortField: "zone_name")
+  trips: [Trip] @connection(name: "ZoneTrips")
 }
 
 type Trip @model {
@@ -34,8 +35,8 @@ type Trip @model {
   ts_finish: Int!
   time_seconds: Int!
   date_trip: String!
-  trip_location: Zone!
-  user: UserProfile! @connection(name: "UserTrips", sortField: "createdAt")
+  zone: Zone @connection(name: "ZoneTrips")
+  user: UserProfile @connection(name: "UserTrips", sortField: "createdAt")
   createdAt: String!
 }
 
@@ -45,6 +46,7 @@ enum OS {
 }
 
 enum RankingType {
+  WEEK
   MONTH
   YEAR
 }
@@ -56,5 +58,3 @@ type Ranking @model {
   user: UserProfile @connection(name: "UserRankings", sortField: "valrank")
   valrank: Float
 }
-
-

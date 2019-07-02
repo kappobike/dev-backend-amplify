@@ -15,6 +15,9 @@ export const createUserProfile = `mutation CreateUserProfile($input: CreateUserP
         id
         region_name
       }
+      trips {
+        nextToken
+      }
     }
     trips {
       items {
@@ -52,6 +55,9 @@ export const updateUserProfile = `mutation UpdateUserProfile($input: UpdateUserP
         id
         region_name
       }
+      trips {
+        nextToken
+      }
     }
     trips {
       items {
@@ -88,6 +94,9 @@ export const deleteUserProfile = `mutation DeleteUserProfile($input: DeleteUserP
       region {
         id
         region_name
+      }
+      trips {
+        nextToken
       }
     }
     trips {
@@ -232,6 +241,17 @@ export const createZone = `mutation CreateZone($input: CreateZoneInput!) {
         nextToken
       }
     }
+    trips {
+      items {
+        id
+        ts_start
+        ts_finish
+        time_seconds
+        date_trip
+        createdAt
+      }
+      nextToken
+    }
   }
 }
 `;
@@ -249,6 +269,17 @@ export const updateZone = `mutation UpdateZone($input: UpdateZoneInput!) {
       zones {
         nextToken
       }
+    }
+    trips {
+      items {
+        id
+        ts_start
+        ts_finish
+        time_seconds
+        date_trip
+        createdAt
+      }
+      nextToken
     }
   }
 }
@@ -268,6 +299,17 @@ export const deleteZone = `mutation DeleteZone($input: DeleteZoneInput!) {
         nextToken
       }
     }
+    trips {
+      items {
+        id
+        ts_start
+        ts_finish
+        time_seconds
+        date_trip
+        createdAt
+      }
+      nextToken
+    }
   }
 }
 `;
@@ -278,12 +320,15 @@ export const createTrip = `mutation CreateTrip($input: CreateTripInput!) {
     ts_finish
     time_seconds
     date_trip
-    trip_location {
+    zone {
       id
       zone_name
       region {
         id
         region_name
+      }
+      trips {
+        nextToken
       }
     }
     user {
@@ -314,12 +359,15 @@ export const updateTrip = `mutation UpdateTrip($input: UpdateTripInput!) {
     ts_finish
     time_seconds
     date_trip
-    trip_location {
+    zone {
       id
       zone_name
       region {
         id
         region_name
+      }
+      trips {
+        nextToken
       }
     }
     user {
@@ -350,12 +398,15 @@ export const deleteTrip = `mutation DeleteTrip($input: DeleteTripInput!) {
     ts_finish
     time_seconds
     date_trip
-    trip_location {
+    zone {
       id
       zone_name
       region {
         id
         region_name
+      }
+      trips {
+        nextToken
       }
     }
     user {
@@ -388,6 +439,9 @@ export const createRanking = `mutation CreateRanking($input: CreateRankingInput!
       region {
         id
         region_name
+      }
+      trips {
+        nextToken
       }
     }
     ranking_type
@@ -422,6 +476,9 @@ export const updateRanking = `mutation UpdateRanking($input: UpdateRankingInput!
         id
         region_name
       }
+      trips {
+        nextToken
+      }
     }
     ranking_type
     user {
@@ -454,6 +511,9 @@ export const deleteRanking = `mutation DeleteRanking($input: DeleteRankingInput!
       region {
         id
         region_name
+      }
+      trips {
+        nextToken
       }
     }
     ranking_type

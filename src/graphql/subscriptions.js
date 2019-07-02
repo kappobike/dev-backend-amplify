@@ -15,6 +15,9 @@ export const onCreateUserProfile = `subscription OnCreateUserProfile {
         id
         region_name
       }
+      trips {
+        nextToken
+      }
     }
     trips {
       items {
@@ -52,6 +55,9 @@ export const onUpdateUserProfile = `subscription OnUpdateUserProfile {
         id
         region_name
       }
+      trips {
+        nextToken
+      }
     }
     trips {
       items {
@@ -88,6 +94,9 @@ export const onDeleteUserProfile = `subscription OnDeleteUserProfile {
       region {
         id
         region_name
+      }
+      trips {
+        nextToken
       }
     }
     trips {
@@ -232,6 +241,17 @@ export const onCreateZone = `subscription OnCreateZone {
         nextToken
       }
     }
+    trips {
+      items {
+        id
+        ts_start
+        ts_finish
+        time_seconds
+        date_trip
+        createdAt
+      }
+      nextToken
+    }
   }
 }
 `;
@@ -249,6 +269,17 @@ export const onUpdateZone = `subscription OnUpdateZone {
       zones {
         nextToken
       }
+    }
+    trips {
+      items {
+        id
+        ts_start
+        ts_finish
+        time_seconds
+        date_trip
+        createdAt
+      }
+      nextToken
     }
   }
 }
@@ -268,6 +299,17 @@ export const onDeleteZone = `subscription OnDeleteZone {
         nextToken
       }
     }
+    trips {
+      items {
+        id
+        ts_start
+        ts_finish
+        time_seconds
+        date_trip
+        createdAt
+      }
+      nextToken
+    }
   }
 }
 `;
@@ -278,12 +320,15 @@ export const onCreateTrip = `subscription OnCreateTrip {
     ts_finish
     time_seconds
     date_trip
-    trip_location {
+    zone {
       id
       zone_name
       region {
         id
         region_name
+      }
+      trips {
+        nextToken
       }
     }
     user {
@@ -314,12 +359,15 @@ export const onUpdateTrip = `subscription OnUpdateTrip {
     ts_finish
     time_seconds
     date_trip
-    trip_location {
+    zone {
       id
       zone_name
       region {
         id
         region_name
+      }
+      trips {
+        nextToken
       }
     }
     user {
@@ -350,12 +398,15 @@ export const onDeleteTrip = `subscription OnDeleteTrip {
     ts_finish
     time_seconds
     date_trip
-    trip_location {
+    zone {
       id
       zone_name
       region {
         id
         region_name
+      }
+      trips {
+        nextToken
       }
     }
     user {
@@ -388,6 +439,9 @@ export const onCreateRanking = `subscription OnCreateRanking {
       region {
         id
         region_name
+      }
+      trips {
+        nextToken
       }
     }
     ranking_type
@@ -422,6 +476,9 @@ export const onUpdateRanking = `subscription OnUpdateRanking {
         id
         region_name
       }
+      trips {
+        nextToken
+      }
     }
     ranking_type
     user {
@@ -454,6 +511,9 @@ export const onDeleteRanking = `subscription OnDeleteRanking {
       region {
         id
         region_name
+      }
+      trips {
+        nextToken
       }
     }
     ranking_type

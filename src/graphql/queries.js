@@ -15,6 +15,9 @@ export const getUserProfile = `query GetUserProfile($id: ID!) {
         id
         region_name
       }
+      trips {
+        nextToken
+      }
     }
     trips {
       items {
@@ -153,6 +156,17 @@ export const getZone = `query GetZone($id: ID!) {
         nextToken
       }
     }
+    trips {
+      items {
+        id
+        ts_start
+        ts_finish
+        time_seconds
+        date_trip
+        createdAt
+      }
+      nextToken
+    }
   }
 }
 `;
@@ -169,6 +183,9 @@ export const listZones = `query ListZones(
         id
         region_name
       }
+      trips {
+        nextToken
+      }
     }
     nextToken
   }
@@ -181,12 +198,15 @@ export const getTrip = `query GetTrip($id: ID!) {
     ts_finish
     time_seconds
     date_trip
-    trip_location {
+    zone {
       id
       zone_name
       region {
         id
         region_name
+      }
+      trips {
+        nextToken
       }
     }
     user {
@@ -222,7 +242,7 @@ export const listTrips = `query ListTrips(
       ts_finish
       time_seconds
       date_trip
-      trip_location {
+      zone {
         id
         zone_name
       }
@@ -248,6 +268,9 @@ export const getRanking = `query GetRanking($id: ID!) {
       region {
         id
         region_name
+      }
+      trips {
+        nextToken
       }
     }
     ranking_type
